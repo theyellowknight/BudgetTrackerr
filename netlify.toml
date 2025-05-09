@@ -1,0 +1,12 @@
+[build]
+  # Directory to publish (the static site content)
+  publish = "/"
+  
+  # No build command needed for static HTML/CSS/JS
+  command = ""
+
+# Redirect all requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
