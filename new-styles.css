@@ -1,0 +1,606 @@
+/* 
+ * BudgetTracker Extension - New Styles
+ * Version: 1.0.0
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fullscreen and centered layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body.fullscreen {
+    font-family: 'Source Code Pro', monospace !important;
+    background-color: rgb(240, 255, 223) !important;
+    color: #000099 !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Container without side borders (since we're adding them to content) */
+.container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    height: auto !important;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Ensure content can grow infinitely */
+.main-content {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    flex-grow: 1;
+}
+
+/* Make sure the body background extends */
+body {
+    min-height: 100vh;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Make tabs more responsive */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    min-width: 80px;
+}
+
+/* Adjust tab content for fullscreen */
+/* Remove duplicate borders from tab content */
+.tab-content {
+    display: none;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-right: none;
+}
+
+.tab-content.active {
+    display: block;
+    border-top: none;
+    padding-top: 15px;
+}
+
+/* Adjust footer for fullscreen */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000099 !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+p, span, div, label, input, select, button {
+    color: #000099 !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+/* Font-face declaration for Source Code Pro */
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('fonts/SourceCodePro-Regular.woff2') format('woff2'),
+         url('fonts/SourceCodePro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Change all font families to Source Code Pro */
+body.fullscreen {
+    font-family: 'Source Code Pro', monospace !important;
+    background-color: rgb(240, 255, 223) !important;
+    color: #000099 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000099 !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+p, span, div, label, input, select, button {
+    color: #000099 !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.transaction-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Ensure content takes maximum space but respects borders */
+.container, .main-content {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Header styling without logo */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Transaction item styling */
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #c0c0c0;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-date {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.transaction-amount.expense {
+    color: var(--danger-color);
+}
+
+.transaction-amount.income {
+    color: var(--success-color);
+}
+
+/* Status message styling */
+.status {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.status.success {
+    background-color: #e6f4ea;
+    color: #34a853 !important;
+}
+
+.status.error {
+    background-color: #fce8e6;
+    color: #ea4335 !important;
+}
+
+/* Form styling improvements */
+.form-group {
+    margin-bottom: 16px;
+}
+
+/* Improved textbox styling */
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #c0c0c0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Source Code Pro', monospace !important;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4285f4;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    background-color: #ffffff;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000099' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #000099 !important;
+}
+
+.btn {
+    background-color: #4285f4;
+    color: white !important;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Section container styling */
+.section-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section-content {
+    padding: 5px 0;
+}
+
+/* Additional button styles */
+.btn-primary {
+    background-color: #4285f4;
+}
+
+.btn-secondary {
+    background-color: #9aa0a6;
+    color: white !important;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.mt-3 {
+    margin-top: 20px;
+}
+
+.mb-2 {
+    margin-bottom: 10px;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Add these styles to improve button spacing and modal */
+.btn-wide {
+    margin: 5px;
+    min-width: 150px;
+    padding: 10px 15px;
+}
+
+/* Modal styles for budget reset */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgb(240, 255, 223);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.close-modal {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#confirm-reset {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Section divider */
+.section-divider {
+    border-bottom: 3px solid #000;
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* Tab styling with lines under buttons - symmetrical alignment */
+.tabs {
+    display: flex;
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    border-bottom: 3px solid #000000;
+    justify-content: space-between;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000099 !important;
+    opacity: 1;
+    margin-right: 5px;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+    flex: 1; /* Make buttons take equal space */
+    text-align: center;
+}
+
+.tab-btn:last-child {
+    margin-right: 0; /* Remove margin from last button */
+}
+
+.tab-btn.active {
+    background-color: rgb(220, 240, 200); /* Darker green than the background */
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Tab content with side borders and bottom border */
+.tab-content {
+    display: none;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-left: 3px solid #000000;
+    border-right: 3px solid #000000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab-content.active {
+    display: block;
+    border-top: none;
+    padding-top: 0;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #000000;
+    min-height: calc(100vh - 150px);
+}
+
+/* Adjust heading spacing */
+.tab-content h3:first-child,
+.tab-content h2:first-child {
+    margin-top: 10px; /* Reduced top margin */
+}
+
+/* Form group spacing */
+.form-group:first-child {
+    margin-top: 10px; /* Reduced top margin */
+}
+
+/* Status message styling for both tabs */
+.status {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.status.success {
+    background-color: rgba(52, 168, 83, 0.2);
+    color: #34a853 !important;
+}
+
+.status.error {
+    background-color: rgba(234, 67, 53, 0.2);
+    color: #ea4335 !important;
+}
+
+/* Import section with bottom border */
+.import-section {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #000000;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    border-top: none; /* Remove any existing top border */
+}
+
+/* Add a specific bottom border element */
+.bottom-border {
+    width: 100%;
+    height: 3px;
+    background-color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Current balance styling */
+.balance-title {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: left; /* Left align the title */
+}
+
+.current-balance-container {
+    background-color: rgba(52, 168, 83, 0.2);
+    border-radius: 6px;
+    padding: 15px;
+    margin: 0 0 15px 0; /* Adjusted margins */
+    border: 2px solid #34a853;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Negative balance styling */
+.current-balance-container.negative {
+    background-color: #ff3333;
+    border-color: #cc0000;
+}
+
+/* Balance text color for negative balance */
+.current-balance-container.negative .balance-display {
+    color: white;
+}
+
+.balance-display {
+    font-size: 42px; /* Much larger font size */
+    font-weight: bold;
+    text-align: center; /* Center the balance amount */
+    padding: 10px 0; /* Add padding to fill the box better */
+    line-height: 1.2; /* Tighter line height */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis if text overflows */
+}
+
+/* Responsive font size for very large numbers */
+@media (max-width: 400px) {
+    .balance-display {
+        font-size: 36px; /* Slightly smaller on small screens */
+    }
+}
+
+/* Transaction list styling */
+.transaction-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 2px solid #c0c0c0;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Balance summary styling */
+.balance-summary {
+    margin-top: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.summary-value {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.summary-value.income {
+    color: #34a853;
+}
+
+.summary-value.expense {
+    color: #ea4335;
+}
+
+/* Make the balance display even larger in the dedicated tab */
+#balance .balance-display {
+    font-size: 60px;
+    padding: 20px 0;
+}
+
+/* Responsive font size for very large numbers */
+@media (max-width: 400px) {
+    #balance .balance-display {
+        font-size: 48px;
+    }
+}
