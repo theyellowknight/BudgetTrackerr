@@ -1,6 +1,6 @@
 # BudgetTrackerr
 
-A simple Chrome extension to track your budget and expenses.
+A simple Chrome extension to track your budget and expenses..
 
 ## Features
 
