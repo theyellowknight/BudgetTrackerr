@@ -1,4 +1,4 @@
-# BudgetTracker
+# BudgetTrackerr
 
 A simple Chrome extension to track your budget and expenses.
 
@@ -31,4 +31,4 @@ A simple Chrome extension to track your budget and expenses.
 
 ## License
 
-MIT © 2025 BudgetTracker
+MIT © 2025 BudgetTrackerr
